@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netwerkschema</title>
+    <title>Netwerkschema met Router</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -49,104 +49,169 @@
         }
         
         .diagram-container {
-            padding: 30px;
+            padding: 40px;
+            position: relative;
         }
         
+        /* Internet Section */
         .internet-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .internet {
-            background: #3498db;
+            background: linear-gradient(135deg, #4a00e0, #8e2de2);
             color: white;
-            padding: 15px 40px;
-            border-radius: 8px;
-            font-size: 24px;
+            padding: 20px 50px;
+            border-radius: 10px;
+            font-size: 26px;
             font-weight: bold;
             display: inline-block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         
-        .connection {
+        /* Connection Lines */
+        .connection-main {
             width: 4px;
-            height: 40px;
-            background: #7f8c8d;
-            margin: 0 auto 30px;
+            height: 60px;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            margin: 0 auto 20px;
         }
         
-        .main-content {
+        /* Router Section */
+        .router-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .router {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .router-details {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        
+        /* Operationeel Section */
+        .operationeel-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .operationeel {
+            background: linear-gradient(135deg, #27ae60, #219653);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .connection-branch {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
-            margin-bottom: 30px;
+            justify-content: center;
+            gap: 100px;
+            margin-top: 30px;
+            position: relative;
         }
         
-        .servers {
-            flex: 1;
+        .connection-vertical {
+            width: 4px;
+            height: 60px;
+            background: linear-gradient(to bottom, #27ae60, #219653);
+            margin: 0 auto;
+        }
+        
+        .connection-horizontal {
+            position: absolute;
+            top: 30px;
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(to right, #27ae60, #219653);
+        }
+        
+        .left-line {
+            left: calc(50% - 220px);
+        }
+        
+        .right-line {
+            right: calc(50% - 220px);
+        }
+        
+        /* Devices Section */
+        .devices-section {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: center;
+            gap: 100px;
+            margin-top: 60px;
         }
         
-        .server {
+        .device {
+            width: 280px;
             background: #ecf0f1;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .server:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        .device:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .server.windows {
-            border-left: 5px solid #2980b9;
+        .device.windows {
+            border-top: 6px solid #2980b9;
         }
         
-        .server.esxi {
-            border-left: 5px solid #e74c3c;
+        .device.esxi {
+            border-top: 6px solid #e74c3c;
         }
         
-        .server.operationeel {
-            border-left: 5px solid #27ae60;
-        }
-        
-        .server-header {
+        .device-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
-        .server-icon {
-            width: 50px;
-            height: 50px;
+        .device-icon {
+            width: 60px;
+            height: 60px;
             background: #34495e;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
-            font-size: 24px;
+            font-size: 28px;
             color: white;
         }
         
-        .server-title {
+        .device-title {
             font-size: 20px;
             font-weight: bold;
             color: #2c3e50;
         }
         
-        .server-details {
-            padding-left: 65px;
+        .device-details {
+            margin-top: 15px;
         }
         
         .detail-item {
-            margin-bottom: 8px;
-            padding: 5px 0;
+            margin-bottom: 10px;
+            padding: 8px 0;
             border-bottom: 1px solid #bdc3c7;
         }
         
@@ -154,78 +219,58 @@
             font-weight: bold;
             color: #2980b9;
             display: inline-block;
-            width: 120px;
+            width: 130px;
         }
         
-        .network-diagram-visual {
-            flex: 1;
+        /* Network Info */
+        .network-info {
             background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .diagram-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #2c3e50;
-        }
-        
-        .network-box {
-            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
             border: 2px solid #3498db;
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 15px;
+        }
+        
+        .network-info h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
             text-align: center;
+            font-size: 22px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
         }
         
-        .network-box h4 {
-            color: #2980b9;
-            margin-bottom: 8px;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
-        .connections {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
         }
         
-        .connection-line {
-            width: 80px;
-            height: 2px;
-            background: #7f8c8d;
-            position: relative;
+        .info-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
         }
         
-        .connection-line:after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 10px solid #7f8c8d;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-        }
-        
+        /* Legend */
         .legend {
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
         }
         
         .legend h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-align: center;
         }
         
         .legend-items {
@@ -246,39 +291,33 @@
             margin-right: 10px;
         }
         
-        .color-windows {
-            background: #2980b9;
-        }
-        
-        .color-esxi {
-            background: #e74c3c;
-        }
-        
-        .color-operationeel {
-            background: #27ae60;
-        }
-        
-        .color-network {
-            background: #3498db;
-        }
+        .color-internet { background: linear-gradient(135deg, #4a00e0, #8e2de2); }
+        .color-router { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .color-operationeel { background: linear-gradient(135deg, #27ae60, #219653); }
+        .color-windows { background: #2980b9; }
+        .color-esxi { background: #e74c3c; }
         
         @media (max-width: 768px) {
-            .main-content {
+            .devices-section {
                 flex-direction: column;
+                align-items: center;
+                gap: 30px;
             }
             
-            .server-header {
-                flex-direction: column;
-                text-align: center;
+            .connection-branch {
+                gap: 50px;
             }
             
-            .server-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
+            .connection-horizontal {
+                width: 100px;
             }
             
-            .server-details {
-                padding-left: 0;
+            .left-line {
+                left: calc(50% - 120px);
+            }
+            
+            .right-line {
+                right: calc(50% - 120px);
             }
         }
     </style>
@@ -286,123 +325,142 @@
 <body>
     <div class="network-diagram">
         <div class="header">
-            <h1>Netwerkschema</h1>
-            <p>VMware ESXi en Windows Client Configuratie</p>
+            <h1>Netwerkschema met Router</h1>
+            <p>Gestructureerde netwerkarchitectuur</p>
         </div>
         
         <div class="diagram-container">
+            <!-- Internet -->
             <div class="internet-section">
                 <div class="internet">INTERNET</div>
-                <div class="connection"></div>
+                <div class="connection-main"></div>
             </div>
             
-            <div class="main-content">
-                <div class="servers">
-                    <div class="server windows">
-                        <div class="server-header">
-                            <div class="server-icon">💻</div>
-                            <div class="server-title">Windows Client</div>
-                        </div>
-                        <div class="server-details">
-                            <div class="detail-item">
-                                <span class="detail-label">Hostnaam:</span> wincl-02
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Ethernet0:</span> 192.168.79.134
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Ethernet1:</span> 192.168.23.131
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">MAC 1:</span> 00-0C-29-40-B2-97
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">MAC 2:</span> 00-0C-29-40-B2-A1
-                            </div>
-                        </div>
+            <!-- Router -->
+            <div class="router-section">
+                <div class="router">Router</div>
+                <div class="router-details">Gateway: 192.168.79.2 | NAT | DHCP | Firewall</div>
+                <div class="connection-main"></div>
+            </div>
+            
+            <!-- Operationeel -->
+            <div class="operationeel-section">
+                <div class="operationeel">OPERATIONEEL</div>
+                <div class="connection-main"></div>
+                
+                <div class="connection-branch">
+                    <div class="connection-vertical"></div>
+                    <div class="connection-horizontal left-line"></div>
+                    <div class="connection-horizontal right-line"></div>
+                    <div class="connection-vertical"></div>
+                </div>
+            </div>
+            
+            <!-- Devices -->
+            <div class="devices-section">
+                <div class="device windows">
+                    <div class="device-header">
+                        <div class="device-icon">💻</div>
+                        <div class="device-title">Windows Client</div>
                     </div>
-                    
-                    <div class="server esxi">
-                        <div class="server-header">
-                            <div class="server-icon">🖥️</div>
-                            <div class="server-title">ESXI Server</div>
+                    <div class="device-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Hostnaam:</span> wincl-02
                         </div>
-                        <div class="server-details">
-                            <div class="detail-item">
-                                <span class="detail-label">IP-adres:</span> 192.168.79.145
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Versie:</span> VMware ESXi 8.0.0
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Beheer-URL:</span> https://192.168.79.145/
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Toewijzing:</span> DHCP
-                            </div>
+                        <div class="detail-item">
+                            <span class="detail-label">IP-adres:</span> 192.168.79.134
                         </div>
-                    </div>
-                    
-                    <div class="server operationeel">
-                        <div class="server-header">
-                            <div class="server-icon">⚙️</div>
-                            <div class="server-title">OPERATIONEEL</div>
+                        <div class="detail-item">
+                            <span class="detail-label">Subnetmasker:</span> 255.255.255.0
                         </div>
-                        <div class="server-details">
-                            <div class="detail-item">
-                                <span class="detail-label">Status:</span> Actief
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Functie:</span> Netwerkbeheer
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Configuratie:</span> Operationeel
-                            </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Gateway:</span> 192.168.79.2
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">MAC-adres:</span> 00-0C-29-40-B2-97
                         </div>
                     </div>
                 </div>
                 
-                <div class="network-diagram-visual">
-                    <div class="diagram-title">Netwerk Overzicht</div>
-                    
-                    <div class="network-box">
-                        <h4>Netwerk 1: 192.168.79.0/24</h4>
-                        <p>Gateway: 192.168.79.2</p>
-                        <p>DHCP: 192.168.79.254</p>
-                        <p>DNS: 192.168.79.2</p>
+                <div class="device esxi">
+                    <div class="device-header">
+                        <div class="device-icon">🖥️</div>
+                        <div class="device-title">ESXI Server</div>
                     </div>
-                    
-                    <div class="connections">
-                        <div class="connection-line"></div>
-                        <div class="connection-line"></div>
-                    </div>
-                    
-                    <div class="network-box">
-                        <h4>Netwerk 2: 192.168.23.0/24</h4>
-                        <p>DHCP: 192.168.23.254</p>
-                        <p>DNS: 192.168.23.1</p>
+                    <div class="device-details">
+                        <div class="detail-item">
+                            <span class="detail-label">IP-adres:</span> 192.168.79.145
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Versie:</span> VMware ESXi 8.0.0
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Beheer-URL:</span> https://192.168.79.145/
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Toewijzing:</span> DHCP
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Hostname:</span> ESXI-01
+                        </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Network Information -->
+            <div class="network-info">
+                <h3>Netwerk Configuratie Details</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Subnet</strong>
+                        192.168.79.0/24
+                    </div>
+                    <div class="info-item">
+                        <strong>Subnetmasker</strong>
+                        255.255.255.0
+                    </div>
+                    <div class="info-item">
+                        <strong>Gateway/Router</strong>
+                        192.168.79.2
+                    </div>
+                    <div class="info-item">
+                        <strong>DHCP Server</strong>
+                        192.168.79.254
+                    </div>
+                    <div class="info-item">
+                        <strong>DNS Server</strong>
+                        192.168.79.2
+                    </div>
+                    <div class="info-item">
+                        <strong>IP Range</strong>
+                        192.168.79.1 - 192.168.79.254
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Legend -->
             <div class="legend">
                 <h3>Legenda</h3>
                 <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="legend-color color-internet"></div>
+                        <span>Internet - Externe verbinding</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-router"></div>
+                        <span>Router - Gateway & Firewall</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-operationeel"></div>
+                        <span>Operationeel - Switch/Netwerk</span>
+                    </div>
                     <div class="legend-item">
                         <div class="legend-color color-windows"></div>
                         <span>Windows Client - Werkstation</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color color-esxi"></div>
-                        <span>ESXi Server - Virtualisatie host</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color color-operationeel"></div>
-                        <span>Operationeel - Netwerk services</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color color-network"></div>
-                        <span>Netwerk - Subnet configuratie</span>
+                        <span>ESXi Server - Virtualisatie</span>
                     </div>
                 </div>
             </div>
