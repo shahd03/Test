@@ -1,5 +1,4 @@
 
-```markdown
 # TaskFlow - Cloud Infrastructure Project
 
 A complete three-service task management application demonstrating modern cloud infrastructure practices with Docker, Kubernetes, Helm, Terraform, and Ansible.
