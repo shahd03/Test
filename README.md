@@ -1,4 +1,3 @@
-Hier is een complete README.md voor jouw hele project:
 
 ```markdown
 # TaskFlow - Cloud Infrastructure Project
