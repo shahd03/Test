@@ -3,14 +3,6 @@
 
 A complete three-service task management application demonstrating modern cloud infrastructure practices with Docker, Kubernetes, Helm, Terraform, and Ansible.
 
-## 📋 Project Overview
-
-**Student:** Shahd ABUZUBAIDA  
-**Course:** Cloud Infrastructure V5R449  
-**Instructor:** Milan Dima  
-**Campus:** Kortrijk  
-**Academic Year:** 2024-2025
-
 ## 🚀 Quick Start
 
 ### Development Environment (Docker Compose)
